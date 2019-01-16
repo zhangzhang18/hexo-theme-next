@@ -8,6 +8,8 @@
     #}{{ __('title.category') + page_title_suffix }}{#
   #}{% elif page.type === "tags" and not page.title %}{#
     #}{{ __('title.tag') + page_title_suffix }}{#
+    #}{% elif page.type === "photos" and not page.title %}{#
+      #}{{ __('title.photos') + page_title_suffix }}{#
   #}{% else %}{#
     #}{{ page.title + page_title_suffix }}{#
   #}{% endif %}{#
@@ -34,7 +36,7 @@
                 {{ _p('counter.tag_cloud', site.tags.length) }}
             </div>
             <div class="tag-cloud-tags">
-              {{ tagcloud({min_font: 12, max_font: 30, amount: 300, color: true, start_color: '#ccc', end_color: '#111'}) }}
+              {{ tagcloud({min_font: 14, max_font: 30, amount: 300, color: true, start_color: '#555', end_color: '#111'}) }}
             </div>
           </div>
         {% elif page.type === 'categories' %}
@@ -46,6 +48,8 @@
               {{ list_categories() }}
             </div>
           </div>
+          {% elif page.type === 'photos' %}
+              <div class="ImageGrid"></div>
         {% else %}
           {{ page.content }}
         {% endif %}

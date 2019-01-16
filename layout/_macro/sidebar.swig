@@ -70,6 +70,7 @@
               </div>
             {% endif %}
 
+
             {% if site.tags.length > 0 %}
               {% set tagsPageQuery = site.pages.find({type: 'tags'}, {lean: true}) %}
               {% set hasTagsPage = tagsPageQuery.length > 0 %}
@@ -80,7 +81,6 @@
                 {% if hasTagsPage %}</a>{% endif %}
               </div>
             {% endif %}
-
           </nav>
 
           {% if theme.rss %}
@@ -91,7 +91,10 @@
               </a>
             </div>
           {% endif %}
-
+<div id="music163player">
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=280 height=86 src="//music.163.com/outchain/player?type=2&id=28949390&auto=0&height=66">
+    </iframe>
+</div>
           {% if theme.social %}
             <div class="links-of-author motion-element">
                 {% for name, link in theme.social %}

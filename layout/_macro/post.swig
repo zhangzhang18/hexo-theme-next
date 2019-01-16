@@ -209,24 +209,18 @@
                {% if theme.post_meta.item_text %}
                  <span class="post-meta-item-text">{{__('post.visitors')}}&#58;</span>
                {% endif %}
-                 <span class="leancloud-visitors-count"></span>
+                 <span class="leancloud-visitors-count">|</span>
              </span>
           {% endif %}
 
-          {% if not is_index and theme.busuanzi_count.enable and theme.busuanzi_count.page_pv %}
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv">{{ theme.busuanzi_count.page_pv_header }}
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>{{ theme.busuanzi_count.page_pv_footer }}
-            </span>
-          {% endif %}
+
 
           {% if theme.post_wordcount.wordcount or theme.post_wordcount.min2read %}
-            <div class="post-wordcount">
               {% if theme.post_wordcount.wordcount %}
                 {% if not theme.post_wordcount.separated_meta %}
                   <span class="post-meta-divider">|</span>
                 {% endif %}
-                <span class="post-meta-item-icon">
+                <span class="post-meta-item-icon">|
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 {% if theme.post_wordcount.item_text %}
@@ -252,7 +246,7 @@
                   {{ min2read(post.content) }}
                 </span>
               {% endif %}
-            </div>
+
           {% endif %}
 
           {% if post.description and (not theme.excerpt_description or not is_index) %}
@@ -333,8 +327,18 @@
     {#####################}
     {### END POST BODY ###}
     {#####################}
+	<div>
+  {% if not is_index %}
+    {% include 'passage-end-tag.swig' %}
+  {% endif %}
+</div>
+<div>
 
+</div>
     {% if theme.wechat_subscriber.enabled and not is_index %}
+          {% if not is_index %}
+            {% include 'my-copyright.swig' %}
+          {% endif %}
       <div>
         {% include 'wechat-subscriber.swig' %}
       </div>
@@ -356,7 +360,7 @@
       {% if post.tags and post.tags.length and not is_index %}
         <div class="post-tags">
           {% for tag in post.tags %}
-            <a href="{{ url_for(tag.path) }}" rel="tag"># {{ tag.name }}</a>
+            <a href="{{ url_for(tag.path) }}" <i class="fa fa-tag"></i> {{ tag.name }}</a>
           {% endfor %}
         </div>
       {% endif %}
