@@ -409,10 +409,10 @@ gitment:
   lazy: false
   cleanly: false
   language: zh-Hans
-  github_user: # MUST HAVE, Your Github ID
-  github_repo: # MUST HAVE, The repo you use to store Gitment comments
-  client_id: # MUST HAVE, Github client id for the Gitment
-  client_secret: # EITHER this or proxy_gateway, Github access secret token for the Gitment
+  github_user: zhangzhang18 # MUST HAVE, Your Github ID
+  github_repo: blogComments  # MUST HAVE, The repo you use to store Gitment comments
+  client_id: b5116cff8d74ed979491 # MUST HAVE, Github client id for the Gitment
+  client_secret: 53944e2255a5fd030921c79b13c4425f2aa840fb # EITHER this or proxy_gateway, Github access secret token for the Gitment
   proxy_gateway: # Address of api proxy, See: https://github.com/aimingoo/intersect
   redirect_protocol: # Protocol of redirect_uri with force_redirect_protocol when mint enabled
 
@@ -420,8 +420,8 @@ gitment:
 # Available value:
 #    button | slide
 # Warning: Baidu Share does not support https.
-baidushare:
-  type: button
+  # baidushare:
+  # type: button
 
 # Share
 # This plugin is more useful in China, make sure you known how to use it.
@@ -553,7 +553,7 @@ busuanzi_count:
   # count values only if the other configs are false
   enable: true
   # custom uv span for the whole site
-  site_uv: true
+  site_uv: false
   site_uv_header: <i class="fa fa-user"></i>
   site_uv_footer:
   # custom pv span for the whole site
